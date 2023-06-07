@@ -2,56 +2,83 @@
 
 <main>
     <div class="container">
-        <form action="verwerk.php" method="get">
+        <form action="verwerk-regristatie.php" method="post">
             <ul>
                 <li>
                     <label for="txtVoornaam">Voornaam</label><br>
-      
-                    <input type="text" id="txtVoornaam" name="txtVoornaam" placeholder="Voornaam" autofocus>
+
+                    <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" autofocus>
                 </li>
                 <li>
                     <label for="txtTussenvoegsels">Tussenvoegsels</label><br>
-                    <input type="text" id="txtTussenvoegsels" name="txtTussenvoegsels" placeholder="Tussenvoegsels">
+                    <input type="text" id="tussenvoegsels" name="tussenvoegsels" placeholder="Tussenvoegsels">
                 </li>
                 <li>
                     <label for="txtAchternaam">Achternaam</label><br>
-                    <input type="text" id="txtAchternaam" name="txtAchternaam" placeholder="Achternaam">
+                    <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam">
                 </li>
                 <li>
                     <label for="txtGebruikersnaam">Gebruikersnaam</label><br>
-                    <input type="text" id="txtGebruikersnaam" name="txtGebruikersnaam" placeholder="Gebruikersnaam">
+                    <input type="text" id="gebruikersnaam" name="gebruikersnaam" placeholder="Gebruikersnaam">
                 </li>
                 <li>
-                    <label for="txtemail">E-mail</label><br>
-                    <input type="text" id="txtemail" name="txtemail" placeholder="E-mail">
+                    <label for="txtemail">email</label><br>
+                    <input type="text" id="email" name="email" placeholder="email">
+                </li>
+                <li>
+                    <label for="txtRol">Rol</label><br>
+                    <select id="rol" name="rol">
+                        <option value="admin">admin</option>
+                        <option value="manager">manager</option>
+                        <option value="regular">regular</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="txtwachtwoord">wachtwoord</label><br>
+                    <input type="text" id="wachtwoord" name="wachtwoord" placeholder="wachtwoord">
+                </li>
+                <li>
+                    <label for="txtindienst">indienst</label><br>
+                    <input type="text" id="indienst" name="indienst" placeholder="indienst">
                 </li>
                 <li>
                     <label for="txtGeslacht">geslacht</label><br>
-                    <input type="text" id="txtGeslacht" name="txtGeslacht" placeholder="Geslacht">
+                    <select id="geslacht" name="geslacht">
+                        <option value="man">man</option>
+                        <option value="vrouw">vrouw</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="txttelefoonnummer">telefoonnummer</label><br>
+                    <input type="text" id="telefoonnummer" name="telefoonnummer" placeholder="telefoonnummer">
+                </li>
+                <li>
+                    <label for="txtmobielnummer ">mobielnummer</label><br>
+                    <input type="text" id="mobielnummer" name="mobielnummer" placeholder="mobielnummer">
                 </li>
             </ul>
             <ul>
                 <li>
                     <label for="txtStraat">Straat</label><br>
-                    <input type="text" id="txtStraat" name="txtStraat" placeholder="Straat" autofocus>
+                    <input type="text" id="straat" name="straat" placeholder="Straat" autofocus>
                 </li>
                 <li>
                     <label for="txtHuisnummer">Huisnummer</label><br>
-                    <input type="text" id="txtHuisnummer" name="txtHuisnummer" placeholder="Huisnummer">
+                    <input type="text" id="huisnummer" name="huisnummer" placeholder="Huisnummer">
                 </li>
             </ul>
             <ul>
                 <li>
                     <label for="txtPostcode">Postcode</label><br>
-                    <input type="text" id="txtPostcode" name="txtPostcode" placeholder="Postcode" autofocus>
+                    <input type="text" id="postcode" name="postcode" placeholder="Postcode" autofocus>
                 </li>
                 <li>
                     <label for="txtPlaats">Plaats</label><br>
-                    <input type="text" id="txtPlaats" name="txtPlaats" placeholder="Plaats">
+                    <input type="text" id="plaats" name="plaats" placeholder="Plaats">
                 </li>
                 <li>
                     <label for="txtLand">Land</label><br>
-                    <input type="text" id="txtLand" name="txtLand" placeholder="Land">
+                    <input type="text" id="land" name="land" placeholder="Land">
                 </li>
             </ul>
             <ul>
