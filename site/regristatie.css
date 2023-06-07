@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: arial, sans-serif;
+    background-color: #1c1c1f;
+    ;
+}
+
+header {
+    display: flex;
+    background-color: #2a2a2a;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: absolute;
+    width: 900px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form {
+    background: #171b1e;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+ul {
+    list-style: none;
+    margin: 0 auto;
+}
+
+li {
+    display: inline-block;
+}
+
+input {
+    appearance: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 6px;
+    font-size: 1.1em;
+    
+}
+
+label {
+    font-size: 0.6em;
+    color: darkgray;
+    padding-left: 16px;
+    text-transform: uppercase;
+}
+
+input:focus {
+    background-color: beige;
+    color: red;
+}
+
+button {
+    appearance: none;
+    border: 1px solid transparent;
+    padding: 10px 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color:
+        cornflowerblue;
+}
+
+button:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: sans-serif;
+}
+
+header li a:hover {
+    text-decoration: underline;
+}
+
+.regrestatie {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
