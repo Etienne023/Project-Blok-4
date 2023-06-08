@@ -38,6 +38,18 @@
                     <input type="text" id="wachtwoord" name="wachtwoord" placeholder="wachtwoord">
                 </li>
                 <li>
+                    <label for="txtperwaneer">perwaneer</label><br>
+                    <input type="text" id="perwaneer" name="perwaneer" placeholder="perwaneer">
+                </li>
+                <li>
+                    <label for="txtafdeling">afdeling</label><br>
+                    <input type="text" id="afdeling" name="afdeling" placeholder="afdeling">
+                </li>
+                <li>
+                    <label for="txtaantalmensen">aantalmensen</label><br>
+                    <input type="text" id="aantalmensen" name="aantalmensen" placeholder="aantalmensen">
+                </li>
+                <li>
                     <label for="txtindienst">indienst</label><br>
                     <input type="text" id="indienst" name="indienst" placeholder="indienst">
                 </li>
