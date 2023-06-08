@@ -28,36 +28,38 @@ $wachtwoord_hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 if ($rol == "admin") {
     $sql = "INSERT INTO administrator (indienst)
     VALUES('$indienst')";
-    mysqli_query($conn,$sql);
+    mysqli_query($conn, $sql);
     $id = mysqli_insert_id($conn);
     $sql = "INSERT INTO gebruiker (voornaam, tussenvoegsels, achternaam, geslacht, email, gebruikersnaam, wachtwoord, straat, huisnummer, postcode, plaats, land, telefoonnummer, mobielnummer, administratorid) 
     
-    VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
-    mysqli_query($conn,$sql);
-} 
+    VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord_hash','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
+    mysqli_query($conn, $sql);
 
-elseif ($rol == "manager") {
-    var_dump($rol);
-    die;
+} elseif ($rol == "manager") {
     $sql = "INSERT INTO manager (afdeling,aantalmensen)
-    VALUES('$afdeling,'$aantalmensen')";
+    
+    VALUES('$afdeling','$aantalmensen')";
+
+
+
+
     $id = mysqli_insert_id($conn);
     $sql = "INSERT INTO gebruiker (voornaam, tussenvoegsels, achternaam, geslacht, email, gebruikersnaam, wachtwoord, straat, huisnummer, postcode, plaats, land, telefoonnummer, mobielnummer, managerid) 
     
-    VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord','$straat','$huisnummer','$postcode','$plaats','$land,$telefoonnummer,'$mobielnummer','$id')";
-    mysqli_query($conn,$sql);
-}
-elseif($rol == "regular"){
-   $sql = "INSERT INTO  (perwaneer) 
+    VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord_hash','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
+
+    mysqli_query($conn, $sql);
+
+} elseif ($rol == "regular") {
+
+    $sql = "INSERT INTO regular (perwaneer) 
+
    VALUES('$perwaneer')";
-   $id = mysqli_insert_id($conn);
+    mysqli_query($conn, $sql);
+    $id = mysqli_insert_id($conn);
+
     $sql = "INSERT INTO gebruiker (voornaam, tussenvoegsels, achternaam, geslacht, email, gebruikersnaam, wachtwoord, straat, huisnummer, postcode, plaats, land, telefoonnummer, mobielnummer, regularid) 
     
-    VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
-    var_dump($sql);
-    mysqli_query($conn,$sql);
-}   
-
-
-
-
+    VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord_hash','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
+    mysqli_query($conn, $sql);
+}
