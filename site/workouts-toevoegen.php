@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="regristatie.css">
+<link rel="stylesheet" href="css/regristatie.css">
 
 <main>
     <div class="container">

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="inlog.css">
+<link rel="stylesheet" href="css/inlog.css">
 <h1>inloggen</h1>
 <div class="container">
     <form action="verwerk-inloggen.php" method="post">
