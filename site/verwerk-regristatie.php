@@ -40,9 +40,6 @@ if ($rol == "admin") {
     
     VALUES('$afdeling','$aantalmensen')";
 
-
-
-
     $id = mysqli_insert_id($conn);
     $sql = "INSERT INTO gebruiker (voornaam, tussenvoegsels, achternaam, geslacht, email, gebruikersnaam, wachtwoord, straat, huisnummer, postcode, plaats, land, telefoonnummer, mobielnummer, managerid) 
     
