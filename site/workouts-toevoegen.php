@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/regristatie.css">
-
+<?php include("navbar.php") ?>
 <main>
     <div class="container">
         <form action="verwerk-workouts.php" method="post">
@@ -29,3 +29,4 @@
         </form>
     </div>
 </main>
+<?php include("footer.php") ?>

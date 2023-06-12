@@ -11,12 +11,13 @@ $gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <link rel="stylesheet" href="css/inlog.css">
 
+  
 <body>
 
     <table>
+        <?php include("navbar.php") ?>
         <form action="verwerkzoek.php" method="post">
             <section class="search">
-                <label for="">zoek</label>
                 <input type="text" name="zoekveld" id="">
                 <button type="submit">zoek!</button>
         </form>
@@ -38,7 +39,6 @@ $gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </tr>
         <tr>
             <?php foreach ($gebruikers as $gebruiker) :  ?>
-
                 <td><?php echo $gebruiker["gebruikersid"] ?></td>
                 <td><?php echo $gebruiker["voornaam"] ?></td>
                 <td><?php echo $gebruiker["tussenvoegsels"] ?></td>
@@ -55,5 +55,5 @@ $gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </tr>
     <?php endforeach ?>
     </table>
-
+    <?php include("footer.php") ?>
 </body>
