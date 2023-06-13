@@ -10,3 +10,6 @@ $sql = "INSERT INTO workouts (omschrijving,notitie ,duur,toevoegdatum)
     
 VALUES('$omschrijving','$notitie ','$duur','$toevoegdatum')";
 mysqli_query($conn, $sql);
+
+header("location: bekijken-workouts.php");
+exit;

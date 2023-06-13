@@ -2,27 +2,46 @@
 
 require "database.php";
 
-$sql = "SELECT * FROM gebruiker";
+$sql = "SELECT *
+        FROM gebruiker
+        LEFT JOIN administrator USING (administratorid)
+        LEFT JOIN manager USING (managerid)
+        LEFT JOIN regular USING (regularid)";
+$result = mysqli_query($conn, $sql);
+
+$infogebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$sql = "SELECT COUNT(*) AS aantalgebruikers FROM gebruiker";
 
 $result = mysqli_query($conn, $sql);
 
-$gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$aantalgebruikers = mysqli_fetch_assoc($result);
 
+
+$sql = "SELECT 
+(SELECT COUNT(managerid) FROM gebruiker WHERE managerid IS NOT NULL) AS manager,
+(SELECT COUNT(administratorid) FROM gebruiker WHERE administratorid IS NOT NULL) AS administrator,
+(SELECT COUNT(regularid) FROM gebruiker WHERE regularid IS NOT NULL) AS regular;
+";
+
+
+$result = mysqli_query($conn, $sql);
+
+$aantalrol = mysqli_fetch_assoc($result);
 ?>
 <link rel="stylesheet" href="css/inlog.css">
 
-  
+
 <body>
 
     <table>
         <?php include("navbar.php") ?>
-        <form action="verwerkzoek.php" method="post">
+        <form action="verwerkzoek.php" method="get">
             <section class="search">
-                <input type="text" name="zoekveld" id="">
+                <input type="text" name="zoekveld">
                 <button type="submit">zoek!</button>
         </form>
         <tr>
-
             <th>gebruikersid</th>
             <th>voornaam</th>
             <th>tussenvoegsels</th>
@@ -36,24 +55,41 @@ $gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <th>plaats</th>
             <th>telefoonnummer</th>
             <th>mobielnummer</th>
+            <th>regularid</th>
+            <th>managerid</th>
+            <th>adminid</th>
+            <th>indienst</th>
+            <th>afdeling</th>
+            <th>aantalmensen</th>
+            <th>perwaneer</th>
         </tr>
         <tr>
-            <?php foreach ($gebruikers as $gebruiker) :  ?>
-                <td><?php echo $gebruiker["gebruikersid"] ?></td>
-                <td><?php echo $gebruiker["voornaam"] ?></td>
-                <td><?php echo $gebruiker["tussenvoegsels"] ?></td>
-                <td><?php echo $gebruiker["achternaam"] ?></td>
-                <td><?php echo $gebruiker["geslacht"] ?></td>
-                <td><?php echo $gebruiker["email"] ?></td>
-                <td><?php echo $gebruiker["gebruikersnaam"] ?></td>
-                <td><?php echo $gebruiker["straat"] ?></td>
-                <td><?php echo $gebruiker["huisnummer"] ?></td>
-                <td><?php echo $gebruiker["postcode"] ?></td>
-                <td><?php echo $gebruiker["plaats"] ?></td>
-                <td><?php echo $gebruiker["telefoonnummer"] ?></td>
-                <td><?php echo $gebruiker["mobielnummer"] ?></td>
+            <?php foreach ($infogebruikers as $infogebruiker) :  ?>
+        <tr>
+            <td><?php echo $infogebruiker["gebruikersid"] ?></td>
+            <td><?php echo $infogebruiker["voornaam"] ?></td>
+            <td><?php echo $infogebruiker["tussenvoegsels"] ?></td>
+            <td><?php echo $infogebruiker["achternaam"] ?></td>
+            <td><?php echo $infogebruiker["geslacht"] ?></td>
+            <td><?php echo $infogebruiker["email"] ?></td>
+            <td><?php echo $infogebruiker["gebruikersnaam"] ?></td>
+            <td><?php echo $infogebruiker["straat"] ?></td>
+            <td><?php echo $infogebruiker["huisnummer"] ?></td>
+            <td><?php echo $infogebruiker["postcode"] ?></td>
+            <td><?php echo $infogebruiker["plaats"] ?></td>
+            <td><?php echo $infogebruiker["telefoonnummer"] ?></td>
+            <td><?php echo $infogebruiker["mobielnummer"] ?></td>
+            <td><?php echo $infogebruiker["regularid"] ?></td>
+            <td><?php echo $infogebruiker["managerid"] ?></td>
+            <td><?php echo $infogebruiker["administratorid"] ?></td>
+            <td><?php echo $infogebruiker["indienst"] ?></td>
+            <td><?php echo $infogebruiker["afdeling"] ?></td>
+            <td><?php echo $infogebruiker["aantalmensen"] ?></td>
+            <td><?php echo $infogebruiker["perwaneer"] ?></td>
         </tr>
     <?php endforeach ?>
     </table>
+    <h4> aantal gebruikers in database </h4><?php echo $aantalgebruikers['aantalgebruikers']; ?>
+    <h4> aantal </h4><?php echo $aantalrol['roladmin']; ?>
     <?php include("footer.php") ?>
 </body>

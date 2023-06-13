@@ -1,21 +1,20 @@
 <?php
 
-$zoekterm = $_POST["zoekveld"];
-
-if (empty($zoekterm)) {
-    header("location: index.php");
-    exit;
-}
-
 require 'database.php';
 
-$sql = "SELECT * FROM gebruiker where voornaam like '%$zoekterm%' ";
+$gebruikers = mysqli_fetch_all(mysqli_query($conn, "SELECT * FROM gebruiker"), MYSQLI_ASSOC);
 
+if (isset($_POST['submit'])) {
 
-$result = mysqli_query($conn, $sql);
+    $zoekveld = $_POST['zoekveld'];
 
-$gebruikers = mysqli_fetch_assoc($result);
+    $sql = "SELECT * FROM gebruiker WHERE voornaam LIKE '%$zoekveld%'";
 
+    $result = mysqli_query($conn, $sql);
+    $gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+ var_dump($gebruikers);
+ die;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,15 +23,13 @@ $gebruikers = mysqli_fetch_assoc($result);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <?php
-    while ($gebruiker = mysqli_fetch_assoc($result)) {
-        echo "<h1>" . $gebruiker["voornaam"] . "</h1>";
-    }
-    ?>
+
+
 </body>
 
 </html>

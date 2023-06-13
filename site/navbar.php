@@ -6,7 +6,7 @@ $sql = "SELECT * FROM gebruiker";
 
 $result = mysqli_query($conn, $sql);
 
-$gebruikers = mysqli_fetch_assoc($result);
+$gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 ?>
@@ -15,22 +15,11 @@ $gebruikers = mysqli_fetch_assoc($result);
 <nav class="navbar">
 
   <div class="navbar-text">
-    Welcome, <?php echo $gebruikers['gebruikersnaam'] ?>
-    <?php
-    if (!is_null($gebruikers['regularid']))
-      echo '(customer)';
-
-    elseif (!is_null($gebruikers['administratorid']))
-      echo '(admin)';
-
-    elseif (!is_null($gebruikers['managerid']))
-      echo '(manager)';
-    ?>
-
-
+    Welcome
   </div>
   <ul class="nav-links">
     <li><a href="bekijken-gebruikers.php">gebruikers</a></li>
+    <li><a href="bekijken-workouts.php">workouts</a></li>
     <li><a href="workouts-toevoegen.php">workouts toevoegen</a></li>
   </ul>
   <div>
