@@ -27,7 +27,7 @@ $sql = "SELECT
 
 $result = mysqli_query($conn, $sql);
 
-$aantalrol = mysqli_fetch_assoc($result);
+$rol = mysqli_fetch_assoc($result);
 ?>
 <link rel="stylesheet" href="css/inlog.css">
 
@@ -36,6 +36,9 @@ $aantalrol = mysqli_fetch_assoc($result);
 
     <table>
         <?php include("navbar.php") ?>
+        <br>
+        <br>
+        <br>
         <form action="verwerkzoek.php" method="get">
             <section class="search">
                 <input type="text" name="zoekveld">
@@ -89,7 +92,37 @@ $aantalrol = mysqli_fetch_assoc($result);
         </tr>
     <?php endforeach ?>
     </table>
-    <h4> aantal gebruikers in database </h4><?php echo $aantalgebruikers['aantalgebruikers']; ?>
-    <h4> aantal </h4><?php echo $aantalrol['roladmin']; ?>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>
+                gebruikers in database
+            </th>
+            <th>
+                admins in database
+            </th>
+            <th>
+                managers in database
+            </th>
+            <th>
+                regulars in database
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <?php echo $aantalgebruikers['aantalgebruikers']; ?>
+            </td>
+            <td>
+                <?php echo $rol['administrator']; ?>
+            </td>
+            <td>
+                <?php echo $rol['manager']; ?>
+            </td>
+            <td>
+                <?php echo $rol['regular']; ?>
+            </td>
+        </tr>
+    </table>
     <?php include("footer.php") ?>
 </body>

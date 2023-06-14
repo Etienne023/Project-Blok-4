@@ -7,25 +7,31 @@
   background-color: #333;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Add this property */
+  align-items: center; /* Add this property */
+  top: 0;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
 }
 
 .nav-links {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  padding: 8px;
+  display: flex; /* Add this property */
 }
 
 .nav-links li {
-  float: left;
+  display: inline-block;
+  margin-right: 10px; /* Add some spacing between links */
+}
+
+.nav-links li:last-child {
+  margin-right: 0; /* Remove margin from the last link */
 }
 
 .nav-links li a {
-  display: block;
   color: white;
-  margin: 0 7;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -38,7 +44,7 @@
 .navbar-text {
   font-size: 16px;
   color: #fff;
-  margin: 0 200;
+  padding: 0 0 0 80px;
 }
 
 .logout-button {
@@ -52,4 +58,7 @@
 
 .logout-button:hover {
   background-color: #000000;
+}
+.nav-rechts{
+  padding-right: 30px
 }

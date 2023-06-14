@@ -22,8 +22,8 @@ $gebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <li><a href="bekijken-workouts.php">workouts</a></li>
     <li><a href="workouts-toevoegen.php">workouts toevoegen</a></li>
   </ul>
-  <div>
-    <a href="regristatie.php" class="logout-button">regristreren</a>
+  <div class="nav-rechts">
+    <a href="regristatie.php" class="logout-button">registreren </a>
     <a href="logout.php" class="logout-button">login/out</a>
   </div>
 </nav>
