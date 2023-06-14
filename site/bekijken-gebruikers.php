@@ -18,6 +18,7 @@ $result = mysqli_query($conn, $sql);
 $aantalgebruikers = mysqli_fetch_assoc($result);
 
 
+
 $sql = "SELECT 
 (SELECT COUNT(managerid) FROM gebruiker WHERE managerid IS NOT NULL) AS manager,
 (SELECT COUNT(administratorid) FROM gebruiker WHERE administratorid IS NOT NULL) AS administrator,
@@ -39,7 +40,7 @@ $rol = mysqli_fetch_assoc($result);
         <br>
         <br>
         <br>
-        <form action="verwerkzoek.php" method="get">
+        <form action="verwerkzoek.php" method="post">
             <section class="search">
                 <input type="text" name="zoekveld">
                 <button type="submit">zoek!</button>

@@ -38,5 +38,35 @@ $workouts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <td><?php echo $workout["workoutid"] ?></td>
     <?php endforeach ?>
     </table>
+    <table>
+        <tr>
+            <th>
+                gebruikers in database
+            </th>
+            <th>
+                admins 
+            </th>
+            <th>
+                managers 
+            </th>
+            <th>
+                regulars
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <?php echo $aantalgebruikers['aantalgebruikers']; ?>
+            </td>
+            <td>
+                <?php echo $rol['administrator']; ?>
+            </td>
+            <td>
+                <?php echo $rol['manager']; ?>
+            </td>
+            <td>
+                <?php echo $rol['regular']; ?>
+            </td>
+        </tr>
+    </table>
     <?php include("footer.php") ?>
 </body>

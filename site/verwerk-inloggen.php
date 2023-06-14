@@ -15,7 +15,6 @@ $sql = "SELECT * FROM gebruiker where email = '$email'";
 
 $result = mysqli_query($conn, $sql);
 
-// echo password_hash('welkom', PASSWORD_DEFAULT);die; 
 
 $gebruiker = mysqli_fetch_assoc($result);
 if (!is_array($gebruiker)) {
