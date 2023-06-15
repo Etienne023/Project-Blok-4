@@ -23,7 +23,7 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -75,7 +75,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-    overflow-x:auto;    
+    overflow-x: auto;
 }
 
 
@@ -103,20 +103,47 @@ section.search {
     text-align: left;
 }
 
+#searchworkouts {
+    padding-top: 55px;
+}
+
 .search input {
     width: 200px;
     padding: 10px;
     border: none;
-    border-radius: 3px;
     margin-right: 10px;
+    border-radius: 50px;
 }
 
-.search button {
-    padding: 10px 15px;
-    background-color: #555;
+#dropdown {
+    background-color: #504f4f;
+    border-radius: 50px;
+    color: white;
     border: none;
-    border-radius: 3px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-}
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+  }
+  
+  #dropdown option {
+    background-color: #504f4f;
+    color: white;
+  }
+  
+  #dropdown::-ms-expand {
+    display: none;
+  }
+  
+  #dropdown:hover,
+  #dropdown:focus {
+    background-color: #333;
+  }
+  .sorteer{
+    display: flex;
+    flex: auto;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+
+  

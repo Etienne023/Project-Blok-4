@@ -14,18 +14,26 @@
                     <input type="text" id="notitie" name="notitie" placeholder="notitie">
                 </li>
                 <li>
-                    <label for="txtduur">duur</label><br>
-                    <input type="text" id="duur" name="duur" placeholder="duur">
+                    <label for="txttijd">duur</label><br>
+                    <input type="text" id="tijd" name="tijd" placeholder="tijd">
                 </li>
                 <li>
                     <label for="txttoevoegdatum ">toevoegdatum</label><br>
                     <input type="text" id="toevoegdatum" name="toevoegdatum" placeholder="toevoegdatum">
                 </li>
-            <ul>
                 <li>
-                    <button type="submit">Verstuur</button>
+                    <label for="txtRol">Rol</label><br>
+                    <select id="rol" name="rol">
+                        <option value="admin">admin</option>
+                        <option value="manager">manager</option>
+                        <option value="regular">regular</option>
+                    </select>
                 </li>
-            </ul>
+                <ul>
+                    <li>
+                        <button type="submit">Verstuur</button>
+                    </li>
+                </ul>
         </form>
     </div>
 </main>
