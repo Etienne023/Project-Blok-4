@@ -19,12 +19,13 @@ main {
     align-items: center;
 }
 
-.container {
+.container1 {
     position: absolute;
     width: 900px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-height: 80%;
 }
 
 form {
@@ -38,10 +39,10 @@ select{
     border-radius: 20px;
     text-align: center;
 }
-ul {
-    list-style: none;
-    margin: 0 auto;
-}
+    ul {
+        list-style: none;
+        margin: 0 auto;
+    }
 
 li {
     display: inline-block;

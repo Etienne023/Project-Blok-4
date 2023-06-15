@@ -1,12 +1,11 @@
-<link rel="stylesheet" href="css/regristatie.css">
 <?php include("navbar.php") ?>
 <main>
-    <div class="container">
+    <div class="container1">
         <form action="verwerk-workouts.php" method="post">
             <ul>
                 <li>
                     <label for="txtomschrijving">omschrijving</label><br>
-
+                    
                     <input type="text" id="omschrijving" name="omschrijving" placeholder="omschrijving" autofocus>
                 </li>
                 <li>
@@ -34,7 +33,8 @@
                         <button type="submit">Verstuur</button>
                     </li>
                 </ul>
-        </form>
-    </div>
-</main>
-<?php include("footer.php") ?>
+            </form>
+        </div>
+    </main>
+    <?php include("footer.php") ?>
+</body>

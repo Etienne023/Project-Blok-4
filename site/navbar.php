@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/inlog.css">
+    <link rel="stylesheet" href="css/regristatie.css">
 </head>
 
 <body>

@@ -3,7 +3,6 @@
 <h1>inloggen</h1>
 <div class="container">
     <form action="verwerk-inloggen.php" method="post">
-
         <ul>
             <li>
                 <label for="txtemail">E-mail</label><br>

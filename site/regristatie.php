@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/regristatie.css">
 <?php include("navbar.php") ?>
 <main>
-    <div class="container">
+    <div class="container1">
         <form action="verwerk-regristatie.php" method="post">
             <ul>
                 <li>

@@ -31,57 +31,57 @@ $aantalworkouts = mysqli_fetch_assoc($result);
 
 
 ?>
+<?php include("navbar.php") ?>
+<br>
+<br>
+<br>
+<div class="sorteer">
+    <?php include 'zoek-formulier.php' ?>
+</div>
 
-
-    <?php include("navbar.php") ?>
-
-    <div class="sorteer">
-        <?php include 'zoek-formulier.php' ?>
-    </div>
-
-    <table>
-        <tr>
-
-            <th>omschrijving</th>
-            <th>notitie</th>
-            <th>duur</th>
-            <th>toevoegdatum</th>
-            <th>workoutid</th>
-            <th>role</th>
-        </tr>
-        <tr>
-            <?php foreach ($workouts as $workout) :  ?>
-                <td><?php echo $workout["omschrijving"] ?></td>
-                <td><?php echo $workout["notitie"] ?></td>
-                <td><?php echo $workout["duur"] ?></td>
-                <td><?php echo $workout["toevoegdatum"] ?></td>
-                <td><?php echo $workout["workoutid"] ?></td>
-                <td><?php echo $workout["role"] ?></td>
-        </tr>
-    <?php endforeach ?>
-    </table>
-    <table>
-        <tr>
-            <th>
-                aantal workouts
-            </th>
-            <th>
-                admins
-            </th>
-            <th>
-                managers
-            </th>
-            <th>
-                regulars
-            </th>
-        </tr>
-        <tr>
-            <td><?php echo $aantalworkouts["workout"] ?></td>
-            <td><?php echo $role['administrator'] ?></td>
-            <td><?php echo $role['manager'] ?></td>
-            <td><?php echo $role['regular'] ?></td>
-        </tr>
-    </table>
-    <?php include("footer.php") ?>
+<table>
+    <tr>
+        <th>omschrijving</th>
+        <th>notitie</th>
+        <th>duur</th>
+        <th>toevoegdatum</th>
+        <th>workoutid</th>
+        <th>role</th>
+    </tr>
+    <tr>
+        <?php foreach ($workouts as $workout) :  ?>
+            <td><?php echo $workout["omschrijving"] ?></td>
+            <td><?php echo $workout["notitie"] ?></td>
+            <td><?php echo $workout["duur"] ?></td>
+            <td><?php echo $workout["toevoegdatum"] ?></td>
+            <td><?php echo $workout["workoutid"] ?></td>
+            <td><?php echo $workout["role"] ?></td>
+    </tr>
+<?php endforeach ?>
+</table>
+<table>
+    <tr>
+        <th>
+            aantal workouts
+        </th>
+        <th>
+            admins
+        </th>
+        <th>
+            managers
+        </th>
+        <th>
+            regulars
+        </th>
+    </tr>
+    <tr>
+        <td><?php echo $aantalworkouts["workout"] ?></td>
+        <td><?php echo $role['administrator'] ?></td>
+        <td><?php echo $role['manager'] ?></td>
+        <td><?php echo $role['regular'] ?></td>
+    </tr>
+</table>
+<?php include("footer.php") ?>
 </body>
+
 </html>
