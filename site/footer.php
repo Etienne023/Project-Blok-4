@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/footer.css">
 <div class="footer-bottom">
 <footer>
   <div class="footer-content">

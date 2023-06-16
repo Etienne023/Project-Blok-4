@@ -17,6 +17,7 @@ $result = mysqli_query($conn, $sql);
 
 
 $gebruiker = mysqli_fetch_assoc($result);
+
 if (!is_array($gebruiker)) {
     header("location: inlog-pagina.php");
     exit;
@@ -24,25 +25,31 @@ if (!is_array($gebruiker)) {
 if (password_verify($wachtwoord,$gebruiker["wachtwoord"])) {
 
     session_start();
+
+    $_SESSION['isingelogd'] = true;
     
     $_SESSION['voornaam'] = $gebruiker["voornaam"];
 
-    $_SESSION['gebruikersid'] = $gebruiker["gebruikersid"];
+    $_SESSION['regularid'] = $gebruiker["regularid"];
+
+    $_SESSION['managerid'] = $gebruiker["managerid"];
+
+    $_SESSION['administratorid'] = $gebruiker["administratorid"];
 
 
 
 
     
     if(!is_null($gebruiker["administratorid"] )){
-        header('location: admin-dashboard.php');
+        header('location: bekijken-gebruikers.php');
         exit;
     }
     if(!is_null($gebruiker["regularid"] )){
-        header('location: index-dashboard.php');
+        header('location: bekijken-gebruikers.php');
         exit;
     }
     if(!is_null($gebruiker["managerid"] )){
-        header('location: manager-dashboard.php');
+        header('location: bekijken-gebruikers.php');
         exit; 
     }
 

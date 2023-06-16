@@ -50,21 +50,22 @@ if (isset($_POST['submit'])) {
 
     $infogebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
 if (isset($_POST['dropdown'])) {
 
-    $dropdown = $_POST["dropdown"];
 
-    if ($dropdown == 'omschrijving') {
-        $sql = 'SELECT omschrijving FROM workouts ORDER BY LENGTH(omschrijving) DESC';
-    } elseif ($dropdown == 'datum') {
-        $sql = 'SELECT * FROM workouts ORDER BY toevoegdatum ASC';
-    }
+    $sql = "SELECT *
+    FROM gebruiker
+    LEFT JOIN administrator USING (administratorid)
+    LEFT JOIN manager USING (managerid)
+    LEFT JOIN regular USING (regularid)
+    ORDER BY gebruikersid DESC
+    ";
 
     $result = mysqli_query($conn, $sql);
 
-    $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $infogebruikers = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-
 
 $sql = "SELECT COUNT(*) AS aantalgebruikers FROM gebruiker";
 
@@ -91,7 +92,21 @@ $rol = mysqli_fetch_assoc($result);
 <br>
 <br>
 <div class="sorteer">
-    <?php include 'zoek-formulier.php' ?>
+
+    <section class="search">
+        <form action="" method="post">
+            <input type="text" name="zoekveld" />
+            <button type="submit" name="submit">zoek!</button>
+        </form>
+    </section>
+
+    <form action="" method="post">
+        <select name="dropdown" id="dropdown">
+            <option value="gebruikersid">sorteer op gebruikersid</option>
+        </select>
+        <button type="submit">sorteer</button>
+    </form>
+
 </div>
 <table>
     </select>
@@ -147,32 +162,16 @@ $rol = mysqli_fetch_assoc($result);
 <br>
 <table>
     <tr>
-        <th>
-            gebruikers in database
-        </th>
-        <th>
-            admins in database
-        </th>
-        <th>
-            managers in database
-        </th>
-        <th>
-            regulars in database
-        </th>
+        <th>gebruikers in database</th>
+        <th>admins in database </th>
+        <th>managers in database </th>
+        <th>regulars in database</th>
     </tr>
     <tr>
-        <td>
-            <?php echo $aantalgebruikers['aantalgebruikers']; ?>
-        </td>
-        <td>
-            <?php echo $rol['administrator']; ?>
-        </td>
-        <td>
-            <?php echo $rol['manager']; ?>
-        </td>
-        <td>
-            <?php echo $rol['regular']; ?>
-        </td>
+        <td> <?php echo $aantalgebruikers['aantalgebruikers']; ?></td>
+        <td><?php echo $rol['administrator']; ?> </td>
+        <td><?php echo $rol['manager']; ?></td>
+        <td> <?php echo $rol['regular']; ?></td>
     </tr>
 </table>
 <?php include("footer.php") ?>

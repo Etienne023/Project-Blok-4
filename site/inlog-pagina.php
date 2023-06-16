@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/inlog.css">
 <?php include("navbar.php") ?>
 <h1>inloggen</h1>
 <div class="container">

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/regristatie.css">
 <?php include("navbar.php") ?>
 <main>
     <div class="container1">

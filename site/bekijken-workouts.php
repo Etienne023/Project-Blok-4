@@ -1,5 +1,14 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['isingelogd'])) {
+    header("location: inlog-pagina.php");
+}
+
+
+
+
 require "database.php";
 
 $sql = "SELECT * FROM workouts";
@@ -9,7 +18,38 @@ $result = mysqli_query($conn, $sql);
 $workouts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
+if (isset($_POST['submit'])) {
 
+    $zoekterm = $_POST["zoekveld"];
+
+    if (empty($zoekterm)) {
+        header("location: bekijken-workouts.php");
+        exit;
+    }
+
+    $sql = "SELECT *
+        FROM workouts WHERE toevoegdatum LIKE '%$zoekterm%' or notitie like '%$zoekterm%' or duur like '%$zoekterm%' or omschrijving like '%$zoekterm%' or workoutid like '%$zoekterm%' or role like '%$zoekterm%'  ";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    $workouts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+if (isset($_POST['dropdown'])) {
+
+    $dropdown = $_POST["dropdown"];
+
+    if ($dropdown == 'omschrijving') {
+        $sql = 'SELECT * FROM workouts ORDER BY omschrijving ASC';
+    } elseif ($dropdown == 'datum') {
+        $sql = 'SELECT * FROM workouts ORDER BY toevoegdatum ASC';
+    }
+
+    $result = mysqli_query($conn, $sql);
+
+    $workouts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
 
 $sql = "SELECT 
 (SELECT COUNT(*) FROM workouts WHERE role = 'administrator') AS administrator,
@@ -48,17 +88,20 @@ $aantalworkouts = mysqli_fetch_assoc($result);
         <th>workoutid</th>
         <th>role</th>
     </tr>
-    <tr>
-        <?php foreach ($workouts as $workout) :  ?>
-            <td><?php echo $workout["omschrijving"] ?></td>
-            <td><?php echo $workout["notitie"] ?></td>
-            <td><?php echo $workout["duur"] ?></td>
-            <td><?php echo $workout["toevoegdatum"] ?></td>
-            <td><?php echo $workout["workoutid"] ?></td>
-            <td><?php echo $workout["role"] ?></td>
-    </tr>
-<?php endforeach ?>
+    <?php foreach ($workouts as $workout) : ?>
+        <?php if (is_null($_SESSION['regularid']) || $workout["role"] <= $_SESSION['regularid']) : ?>
+            <tr>
+                <td><?php echo $workout["omschrijving"] ?></td>
+                <td><?php echo $workout["notitie"] ?></td>
+                <td><?php echo $workout["duur"] ?></td>
+                <td><?php echo $workout["toevoegdatum"] ?></td>
+                <td><?php echo $workout["workoutid"] ?></td>
+                <td><?php echo $workout["role"] ?></td>
+            </tr>
+        <?php endif ?>
+    <?php endforeach ?>
 </table>
+
 <table>
     <tr>
         <th>

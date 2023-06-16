@@ -25,6 +25,8 @@ $aantalmensen = $_POST["aantalmensen"];
 
 $wachtwoord_hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 
+
+
 if ($rol == "admin") {
     $sql = "INSERT INTO administrator (indienst)
     VALUES('$indienst')";
@@ -34,6 +36,7 @@ if ($rol == "admin") {
     
     VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord_hash','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
     mysqli_query($conn, $sql);
+
 } elseif ($rol == "manager") {
     $sql = "INSERT INTO manager (afdeling,aantalmensen)
     
@@ -45,6 +48,7 @@ if ($rol == "admin") {
     VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord_hash','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
 
     mysqli_query($conn, $sql);
+
 } elseif ($rol == "regular") {
 
     $sql = "INSERT INTO regular (perwaneer) 
@@ -57,4 +61,11 @@ if ($rol == "admin") {
     
     VALUES('$voornaam','$tussenvoegsels','$achternaam','$geslacht','$email','$gebruikersnaam','$wachtwoord_hash','$straat','$huisnummer','$postcode','$plaats','$land','$telefoonnummer','$mobielnummer','$id')";
     mysqli_query($conn, $sql);
+
 }
+
+
+
+
+header("location: bekijken-workouts.php");
+exit;
