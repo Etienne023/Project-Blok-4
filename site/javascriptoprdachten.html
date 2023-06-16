@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #1f1f1f;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .collapsible {
+      background-color: #333333;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      text-align: left;
+      outline: none;
+      width: 100%;
+    }
+
+    .content {
+      display: none;
+      padding: 10px;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Leertaak 5 - Forms</h1>
+
+    <h2>Opdrachten:</h2>
+    <ol>
+      <li>Maak een formulier met een tekstveld en een knop. Bij het indrukken van de knop moet de waarde van het tekstveld worden weergegeven in de console.</li>
+      <li>Voeg een selectievakje toe aan het formulier met meerdere opties. Schrijf JavaScript-code om de geselecteerde optie weer te geven wanneer deze wordt gewijzigd.</li>
+      <li>Maak een formulier met meerdere keuzerondjes voor geslacht. Schrijf JavaScript-code om het geselecteerde geslacht weer te geven wanneer een keuzerondje wordt aangevinkt.</li>
+    </ol>
+
+    <h2>Opdrachten:</h2>
+    <button type="button" class="collapsible">Toon opdrachten</button>
+    <div class="content">
+      <h3>Opdracht 1:</h3>
+      <form id="form1">
+        <label for="textInput">Tekstveld:</label>
+        <input type="text" id="textInput" required>
+        <button type="button" onclick="logTextValue()">Log waarde</button>
+      </form>
+
+      <h3>Opdracht 2:</h3>
+      <form id="form2">
+        <label for="selectBox">Selectievakje:</label>
+        <select id="selectBox" onchange="displaySelectedOption()">
+          <option value="option1">Optie 1</option>
+          <option value="option2">Optie 2</option>
+          <option value="option3">Optie 3</option>
+        </select>
+      </form>
+
+      <h3>Opdracht 3:</h3>
+      <form id="form3">
+        <label>Geslacht:</label>
+        <input type="radio" id="male" name="gender" value="male" onchange="displaySelectedGender()">
+        <label for="male">Man</label>
+
+        <input type="radio" id="female" name="gender" value="female" onchange="displaySelectedGender()">
+        <label for="female">Vrouw</label>
+
+        <input type="radio" id="other" name="gender" value="other" onchange="displaySelectedGender()">
+        <label for="other">in de war</label>
+      </form>
+    </div>
+
+    <script>
+      var collapsibleBtn = document.querySelector('.collapsible');
+      var content = document.querySelector('.content');
+
+      collapsibleBtn.addEventListener('click', function() {
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      });
+
+      function logTextValue() {
+        var textInput = document.getElementById("textInput");
+        console.log("Ingevoerde waarde: " + textInput.value);
+      }
+
+      function displaySelectedOption() {
+        var selectBox = document.getElementById("selectBox");
+        var selectedOption = selectBox.options[selectBox.selectedIndex].text;
+        console.log("Geselecteerde optie: " + selectedOption);
+      }
+
+      function displaySelectedGender() {
+        var genderRadios = document.getElementsByName("gender");
+        var selectedGender;
+
+        for (var i = 0; i < genderRadios.length; i++) {
+          if (genderRadios[i].checked) {
+            selectedGender = genderRadios[i].value;
+            break;
+          }
+        }
+
+        console.log("Geselecteerd geslacht: " + selectedGender);
+      }
+    </script>
+  </div>
+</body>
+</html>

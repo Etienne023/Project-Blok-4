@@ -89,7 +89,16 @@ $aantalworkouts = mysqli_fetch_assoc($result);
         <th>role</th>
     </tr>
     <?php foreach ($workouts as $workout) : ?>
-        <?php if (is_null($_SESSION['regularid']) || $workout["role"] <= $_SESSION['regularid']) : ?>
+        <?php if (is_null($_SESSION['regularid'])) : ?>
+            <tr>
+                <td><?php echo $workout["omschrijving"] ?></td>
+                <td><?php echo $workout["notitie"] ?></td>
+                <td><?php echo $workout["duur"] ?></td>
+                <td><?php echo $workout["toevoegdatum"] ?></td>
+                <td><?php echo $workout["workoutid"] ?></td>
+                <td><?php echo $workout["role"] ?></td>
+            </tr>
+        <?php elseif (is_null($workout["role"])) : ?>
             <tr>
                 <td><?php echo $workout["omschrijving"] ?></td>
                 <td><?php echo $workout["notitie"] ?></td>
